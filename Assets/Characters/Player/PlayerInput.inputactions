@@ -1,5 +1,5 @@
 {
-    "name": "first",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,24 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "9d8cbd1c-0979-44ed-9efb-9f606da769df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SprintEnabled",
+                    "type": "Value",
+                    "id": "dd98c034-624d-4205-a95d-1afef450de81",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SprintDisabled",
+                    "type": "Button",
+                    "id": "80ba8329-af10-4f84-acde-7b2de20b1799",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -251,6 +269,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ca0a7fe-925b-4a75-82f4-259935d651e1",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SprintEnabled",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f63fa84b-689e-40f6-a360-7b28b20c6764",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SprintDisabled",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -17,7 +17,7 @@ public class Slime : Enemy
                 Vector2 movementDir = (targetPos - body.position);
                 facingRight = movementDir.x >= 0;
                 if (!movementLocked && movementDir.magnitude>0.15f){
-                    body.MovePosition(body.position + movementDir.normalized * moveSpeed * Time.fixedDeltaTime);
+                    body.MovePosition(body.position + moveSpeed * Time.fixedDeltaTime * movementDir.normalized);
                 }
                 break;
         }

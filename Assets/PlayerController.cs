@@ -5,29 +5,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    // public float maxSpeed = 1f;
-    // public float acceleration = 0.3f;
-    // Vector2 velocity = new Vector2(0,0);
+    [Header("Movement Prefs")]
+    public float walkSpeed = 1f;
+    public float sprintSpeed = 1.5f;
+    public float moveSmoothness = 10f;
+    float moveSpeed;
     Vector2 movementInput;
     Vector2 prevMotion = new(0,-1);
     bool isMoving;
     public bool isSprinting = false;
+    [Header("Other")]
     public SwordAttack swordAttack;
     public Rigidbody2D body;
     public Animator animator;
     public ParticleSystem dustParticles;
 
+    void Start(){
+        moveSpeed = walkSpeed;
+    }
     private void FixedUpdate(){
-        if(isSprinting){
-            moveSpeed = 1.5f;
-        }else{
-            moveSpeed = 1f;
-        }
         
-        body.velocity = Vector2.MoveTowards(body.velocity, movementInput*moveSpeed, Time.deltaTime*moveSpeed*6);
+        body.velocity = Vector2.MoveTowards(body.velocity, movementInput*moveSpeed, Time.deltaTime*moveSpeed*moveSmoothness);
         Animate();
-        print(dustParticles.isPlaying + " " + isSprinting);
     }
 
     private void Animate(){
@@ -52,12 +51,12 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
     void OnSprintEnabled(){
-        isSprinting = true;
+        moveSpeed = sprintSpeed;
         dustParticles.Play();
 
     }
     void OnSprintDisabled(){
-        isSprinting = false;
+        moveSpeed = walkSpeed;
         dustParticles.Stop();
 
     }

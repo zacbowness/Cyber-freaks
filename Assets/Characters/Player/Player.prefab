@@ -5069,6 +5069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  moveSmooth: 7.5
   isSprinting: 0
   swordAttack: {fileID: 2147523924368544049}
   body: {fileID: 15076253698752018}
